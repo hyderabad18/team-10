@@ -55,6 +55,7 @@ public class FileUpload_Fragment extends Fragment {
     private EditText subject;
     View holder;
     String uploadfilename;
+    Button  button;
 
     public FileUpload_Fragment() {
         // Required empty public constructor
@@ -66,7 +67,13 @@ public class FileUpload_Fragment extends Fragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         holder = inflater.inflate(R.layout.fragment_file_upload, container, false);
-
+        button = holder.findViewById(R.id.upload);
+        button.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                buttonupload();
+            }
+        });
         Toast.makeText(getActivity(), "File in uplaod activity", Toast.LENGTH_SHORT).show();
         final String[] standard = new String[]{"Select", "10", "11", "12"};
         final ArrayAdapter<String> standardadapter = new ArrayAdapter<String>(getActivity(), android.R.layout.simple_dropdown_item_1line, standard);
@@ -124,7 +131,7 @@ public class FileUpload_Fragment extends Fragment {
 
     }
 
-    public void buttonupload(View v) {
+    public void buttonupload() {
 
 
         ConnectivityManager manager = (ConnectivityManager) getActivity().getSystemService(CONNECTIVITY_SERVICE);
@@ -144,11 +151,17 @@ public class FileUpload_Fragment extends Fragment {
             final ProgressDialog progressDialog = new ProgressDialog(getActivity());
             progressDialog.setTitle("uploading file");
             progressDialog.show();
-            StorageReference storageReference = mStorageRef.child("audiobooks/" + uploadfilename);
+            final StorageReference storageReference = mStorageRef.child("audiobooks/" + uploadfilename);
             storageReference.putFile(uploadfileuri).addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
                 @Override
                 public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
                     progressDialog.dismiss();
+                    storageReference.getDownloadUrl().addOnSuccessListener(new OnSuccessListener<Uri>() {
+                        @Override
+                        public void onSuccess(Uri uri) {
+                            Toast.makeText(getActivity(), uri.toString(), Toast.LENGTH_SHORT).show();
+                        }
+                    });
                     Toast.makeText(getActivity(), "doc uploaded", Toast.LENGTH_SHORT).show();
 
                     databaseReference = firebaseDatabase.getReference().child("files_temp").child(String.valueOf(count));

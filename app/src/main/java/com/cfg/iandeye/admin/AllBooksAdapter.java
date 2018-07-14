@@ -60,7 +60,7 @@ public class AllBooksAdapter extends BaseAdapter implements ListAdapter {
 
         if (view == null) {
             LayoutInflater inflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-            view = inflater.inflate(R.layout.layout_accept_reject, null);
+            view = inflater.inflate(R.layout.allfiles_layout, null);
         }
         TextView listItemText_filename = (TextView)view.findViewById(R.id.filename);
         TextView listItemText_volunteername = (TextView)view.findViewById(R.id.volunteer_name);

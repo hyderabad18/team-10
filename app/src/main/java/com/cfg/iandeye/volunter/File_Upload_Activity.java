@@ -48,7 +48,7 @@ public class File_Upload_Activity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_file__upload_);
-
+        Toast.makeText(this, "File in uplaod activity", Toast.LENGTH_SHORT).show();
         final String[] standard=new String[]{"Select","10","11","12"};
         final ArrayAdapter<String> standardadapter=new ArrayAdapter<String>(this,android.R.layout.simple_dropdown_item_1line,standard);
          spinner = findViewById(R.id.standard_spinner);

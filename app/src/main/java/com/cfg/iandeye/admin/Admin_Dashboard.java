@@ -95,8 +95,11 @@ public class Admin_Dashboard extends AppCompatActivity{
         ViewPagerAdapter adapter = new ViewPagerAdapter(getSupportFragmentManager());
         AcceptBooksFragment acceptBooks = new AcceptBooksFragment();
         AllBooksFragment allBooksFragment =new AllBooksFragment();
+        RequestedBooksFragment requestedBooksFragment = new RequestedBooksFragment();
         adapter.addFragment(acceptBooks);
         adapter.addFragment(allBooksFragment);
+        adapter.addFragment(requestedBooksFragment);
+
         viewPager.setAdapter(adapter);
         viewPager.setCurrentItem(0);
 

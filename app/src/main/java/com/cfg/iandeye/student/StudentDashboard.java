@@ -88,8 +88,10 @@ public class StudentDashboard extends AppCompatActivity {
         ViewPagerAdapter adapter = new ViewPagerAdapter(getSupportFragmentManager());
         Offlinedocs offlinedocs = new Offlinedocs();
         Onlinedocs onlinedocs =new Onlinedocs();
+        RequestBook requestBook = new RequestBook();
         adapter.addFragment(offlinedocs);
         adapter.addFragment(onlinedocs);
+        adapter.addFragment(requestBook);
         viewPager.setAdapter(adapter);
         viewPager.setCurrentItem(0);
 

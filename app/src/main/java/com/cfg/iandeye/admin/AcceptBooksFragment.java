@@ -45,13 +45,15 @@ public class AcceptBooksFragment extends Fragment {
         final ArrayList<String> editon_list=new ArrayList<>();
         final ArrayList<String> subject_list=new ArrayList<>();
         final ArrayList<String> standard_list=new ArrayList<>();
+        final ArrayList<String> file_urls = new ArrayList<>();
+
         final ArrayList<String> key_ids = new ArrayList<>();
 
 
 
 
         final File_Accept_Reject_Adapter fileDownloadadapter=new
-                File_Accept_Reject_Adapter(filenames,volunteernames,editon_list,subject_list,standard_list,key_ids,getActivity());
+                File_Accept_Reject_Adapter(filenames,volunteernames,editon_list,subject_list,standard_list,file_urls,key_ids,getActivity());
 
 
 
@@ -73,6 +75,7 @@ public class AcceptBooksFragment extends Fragment {
                     editon_list.add(map.get("edition"));
                     subject_list.add(map.get("subject"));
                     standard_list.add(map.get("standard"));
+                    file_urls.add(map.get("url"));
                     key_ids.add(map.get("keyid"));
 
 

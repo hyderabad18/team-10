@@ -9,12 +9,6 @@
     <item
         android:title="Request"
         android:id="@+id/request_book" />
-    <item
-        android:title="Share"
-        android:id="@+id/share"/>
-    <item
-        android:title="more"
-        android:id="@+id/more"/>
 
 
 </menu>

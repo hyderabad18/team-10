@@ -11,10 +11,14 @@ import android.os.Bundle;
 import android.provider.OpenableColumns;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
+import android.text.TextUtils;
 import android.util.Log;
 import android.view.View;
 import android.webkit.MimeTypeMap;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.EditText;
+import android.widget.Spinner;
 import android.widget.Toast;
 
 import com.cfg.iandeye.R;
@@ -36,12 +40,21 @@ public class File_Upload_Activity extends AppCompatActivity {
     private DatabaseReference databaseReference;
     private FirebaseDatabase firebaseDatabase;
     private static int count=1;
+    Spinner spinner;
+    private EditText file_name;
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_file__upload_);
+
+        final String[] standard=new String[]{"Select","10","11","12"};
+        final ArrayAdapter<String> standardadapter=new ArrayAdapter<String>(this,android.R.layout.simple_dropdown_item_1line,standard);
+         spinner = findViewById(R.id.standard_spinner);
+        spinner.setAdapter(standardadapter);
+
+
 
         mStorageRef = FirebaseStorage.getInstance(com.google.firebase.FirebaseApp.initializeApp(File_Upload_Activity.this)).getReference();
         firebaseDatabase= FirebaseDatabase.getInstance();
@@ -96,6 +109,11 @@ public class File_Upload_Activity extends AppCompatActivity {
             Toast.makeText(this, "No Internet", Toast.LENGTH_SHORT).show();
             return;
         }
+        if(TextUtils.isEmpty(file_name.getText()))
+        {
+            Toast.makeText(this, "Enter File Name", Toast.LENGTH_SHORT).show();
+            return;
+        }
 
 
         if(uploadfileuri!=null)
@@ -111,11 +129,10 @@ public class File_Upload_Activity extends AppCompatActivity {
                     Toast.makeText(File_Upload_Activity.this, "doc uploaded", Toast.LENGTH_SHORT).show();
                     Fileupload fileupload=new Fileupload("first file",taskSnapshot.getMetadata().toString());
 
-                        databaseReference = firebaseDatabase.getReference().child("filestorage").child("filestorage").child("filestorage").child("filestorage").child(String.valueOf(count++));
-                        databaseReference.setValue(fileupload);
+                        databaseReference = firebaseDatabase.getReference().child("rootfiles").child(spinner.getSelectedItem().toString()).child(String.valueOf(count++));
+                        databaseReference.setValue(file_name.getText());
 
 
-                    finish();
                 }
             }).addOnFailureListener(new OnFailureListener() {
                 @Override

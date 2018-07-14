@@ -15,34 +15,65 @@
         android:orientation="horizontal"
         android:id="@+id/relativeLayout">
 
+        <Spinner
+            android:id="@+id/standard_spinner"
+            android:layout_width="179dp"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentTop="true"
+            android:layout_marginTop="108dp"
+            android:hint="select Standard" />
+
 
         <Button
             android:id="@+id/select"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="39dp"
-            android:text="Select file"
-            tools:ignore="HardcodedText"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentTop="true"
+            android:layout_marginTop="177dp"
             android:backgroundTint="@color/colorPrimary"
             android:elevation="8dp"
+            android:text="Select file"
             android:textColor="@color/white"
-            android:layout_alignParentStart="true" />
+            tools:ignore="HardcodedText" />
 
         <Button
             android:id="@+id/upload"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:onClick="buttonupload"
-            android:layout_alignRight="@+id/select"
-            android:text="upload"
-            tools:ignore="HardcodedText"
-            android:backgroundTint="@color/colorPrimary"
-            android:elevation="8dp"
-            android:textColor="@color/white"
             android:layout_alignBaseline="@+id/select"
             android:layout_alignBottom="@+id/select"
             android:layout_alignParentEnd="true"
-            android:layout_marginEnd="20dp" />
+            android:layout_alignRight="@+id/select"
+            android:layout_marginEnd="20dp"
+            android:backgroundTint="@color/colorPrimary"
+            android:elevation="8dp"
+            android:onClick="buttonupload"
+            android:text="upload"
+            android:textColor="@color/white"
+            tools:ignore="HardcodedText" />
+
+        <TextView
+            android:id="@+id/textView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignStart="@+id/relativeLayout"
+            android:layout_alignTop="@+id/standard_spinner"
+            android:text="Select Standard"
+            android:textColor="@android:color/black" />
+
+        <EditText
+            android:id="@+id/file_name"
+            android:layout_width="176dp"
+            android:layout_height="17dp"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentTop="true"
+            android:layout_marginTop="32dp"
+            android:ems="10"
+            android:hint="Enter File Name"
+            android:inputType="textPersonName"
+            android:text="Name" />
 
     </RelativeLayout>
 

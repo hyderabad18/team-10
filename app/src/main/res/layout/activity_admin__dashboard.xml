@@ -24,7 +24,7 @@
         app:itemBackground="@color/colorPrimary"
         app:itemIconTint="@drawable/nav_item_color_state"
         app:itemTextColor="@drawable/nav_item_color_state"
-        app:menu="@menu/volunteer_navigation_menu"
+        app:menu="@menu/admin_navigation_menu"
         android:background="@color/colorPrimary"/>
 
 

@@ -28,7 +28,7 @@
         </activity>
         <activity android:name=".admin.AdminLogin" />
         <activity android:name=".admin.Admin_Dashboard" />
-        <activity android:name=".volunter.Volunteer_Dashboard"></activity>
+        <activity android:name=".volunter.Volunteer_Dashboard"/>
     </application>
 
 </manifest>

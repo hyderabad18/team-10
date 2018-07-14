@@ -14,11 +14,11 @@ public class AdminLogin extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_admin_login);
-        Button admin_login = findViewById(R.id.admin_button);
+        Button admin_login = findViewById(R.id.admin);
         admin_login.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                startActivity(new Intent(AdminLogin.this,AcceptBooks.class));
+                startActivity(new Intent(AdminLogin.this,Admin_Dashboard.class));
             }
         });
     }

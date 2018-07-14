@@ -22,6 +22,11 @@ public class Splash_Activity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_splash);
 
+
+        Button admin = findViewById(R.id.admin_button);
+        Button volunteer = findViewById(R.id.volunteer_button);
+        Button student = findViewById(R.id.student_button);
+
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
             if (ActivityCompat.checkSelfPermission(this, android.Manifest.permission.WRITE_EXTERNAL_STORAGE) != PackageManager.PERMISSION_GRANTED
                     && ActivityCompat.checkSelfPermission(this, android.Manifest.permission.READ_EXTERNAL_STORAGE) != PackageManager.PERMISSION_GRANTED ){
@@ -31,9 +36,6 @@ public class Splash_Activity extends AppCompatActivity {
             }
         }
 
-        final Button admin = findViewById(R.id.admin_button);
-        Button volunteer = findViewById(R.id.volunteer_button);
-        Button student = findViewById(R.id.student_button);
         admin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

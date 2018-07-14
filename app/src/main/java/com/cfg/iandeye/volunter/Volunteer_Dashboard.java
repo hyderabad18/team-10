@@ -20,8 +20,7 @@ public class Volunteer_Dashboard extends AppCompatActivity{
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_volunteer__dashboard);
-        toolbar = (Toolbar) findViewById(R.id.toolbar);
-        toolbar.setTitle("Saved Files");
+
         final BottomNavigationView bottomNavigationView = (BottomNavigationView)
                 findViewById(R.id.bottom_navigation);
         viewPager = (ViewPager) findViewById(R.id.viewpager);

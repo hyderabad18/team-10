@@ -19,9 +19,8 @@ public class Admin_Dashboard extends AppCompatActivity{
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_volunteer__dashboard);
-        toolbar = (Toolbar) findViewById(R.id.toolbar);
-        toolbar.setTitle("Saved Files");
+        setContentView(R.layout.activity_admin__dashboard);
+
         final BottomNavigationView bottomNavigationView = (BottomNavigationView)
                 findViewById(R.id.bottom_navigation);
         viewPager = (ViewPager) findViewById(R.id.viewpager);
@@ -31,10 +30,10 @@ public class Admin_Dashboard extends AppCompatActivity{
                     @Override
                     public boolean onNavigationItemSelected(@NonNull MenuItem item) {
                         switch (item.getItemId()) {
-                            case R.id.uploadfiles:
+                            case R.id.approvals:
                                 viewPager.setCurrentItem(0);
                                 break;
-                            case R.id.statistics:
+                            case R.id.allfiles:
                                 viewPager.setCurrentItem(1);
                                 break;
 
@@ -87,8 +86,9 @@ public class Admin_Dashboard extends AppCompatActivity{
     {
         ViewPagerAdapter adapter = new ViewPagerAdapter(getSupportFragmentManager());
         AcceptBooksFragment acceptBooks = new AcceptBooksFragment();
+        AllBooksFragment allBooksFragment =new AllBooksFragment();
         adapter.addFragment(acceptBooks);
-       // adapter.addFragment(volunteer_statistics);
+        adapter.addFragment(allBooksFragment);
         viewPager.setAdapter(adapter);
         viewPager.setCurrentItem(0);
 

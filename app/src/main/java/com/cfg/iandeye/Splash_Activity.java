@@ -8,6 +8,8 @@ import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.v4.app.ActivityCompat;
 import android.support.v7.app.AppCompatActivity;
+import android.view.View;
+import android.widget.Button;
 import android.widget.Toast;
 
 import com.cfg.iandeye.volunter.Volunteer_Registration;
@@ -27,6 +29,36 @@ public class Splash_Activity extends AppCompatActivity {
                 return;
             }
         }
+
+        final Button admin = findViewById(R.id.admin_button);
+        Button volunteer = findViewById(R.id.volunteer_button);
+        Button student = findViewById(R.id.student_button);
+        admin.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+            startActivity(new Intent(Splash_Activity.this,adminLogin.class));
+            }
+        });
+
+        volunteer.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(Splash_Activity.this,Volunteer_Registration.class));
+
+
+            }
+        });
+
+        student.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(Splash_Activity.this,Volunteer_Registration.class));
+
+            }
+        });
+
+
+
 
     }
 

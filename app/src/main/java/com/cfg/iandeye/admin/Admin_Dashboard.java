@@ -60,12 +60,8 @@ public class Admin_Dashboard extends AppCompatActivity{
                     bottomNavigationView.getMenu().getItem(0).setChecked(false);
                 }
                 Log.i("page", "onPageSelected: "+position);
-                if(position==0){
-                    toolbar.setTitle("Saved Files");
-                }
-                else {
-                    toolbar.setTitle("Online files");
-                }
+
+
                 bottomNavigationView.getMenu().getItem(position).setChecked(true);
                 prevMenuItem = bottomNavigationView.getMenu().getItem(position);
 

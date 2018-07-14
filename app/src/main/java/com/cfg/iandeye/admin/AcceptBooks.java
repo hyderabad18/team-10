@@ -29,8 +29,13 @@ public class AcceptBooks extends AppCompatActivity {
     ListView docslist= (ListView) findViewById(R.id.onlinedocs);
     final ArrayList<String> filenames=new ArrayList<>();
     final ArrayList<String> volunteernames=new ArrayList<>();
+        final ArrayList<String> editon_list=new ArrayList<>();
+        final ArrayList<String> subject_list=new ArrayList<>();
+        final ArrayList<String> standard_list=new ArrayList<>();
 
-    final File_Accept_Reject_Adapter fileDownloadadapter=new File_Accept_Reject_Adapter(filenames,volunteernames,this);
+
+
+        final File_Accept_Reject_Adapter fileDownloadadapter=new File_Accept_Reject_Adapter(filenames,volunteernames,editon_list,subject_list,standard_list,this);
 
 
 
@@ -49,6 +54,11 @@ public class AcceptBooks extends AppCompatActivity {
 
                 filenames.add(filename);
                 volunteernames.add(volunteername);
+                editon_list.add(map.get("edition"));
+                subject_list.add(map.get("subject"));
+                standard_list.add(map.get("standard"));
+
+
 
                 fileDownloadadapter.notifyDataSetChanged();
             }

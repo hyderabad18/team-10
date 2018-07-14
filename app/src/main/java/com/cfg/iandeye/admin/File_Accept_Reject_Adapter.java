@@ -11,6 +11,8 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.cfg.iandeye.R;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 
 import java.util.ArrayList;
 
@@ -22,14 +24,22 @@ import java.util.ArrayList;
 public class File_Accept_Reject_Adapter extends BaseAdapter implements ListAdapter {
     private ArrayList<String> filenames = new ArrayList<String>();
     private ArrayList<String> vulunteer_namers = new ArrayList<String>();
+    ArrayList<String> editon_list=new ArrayList<>();
+    ArrayList<String> subject_list=new ArrayList<>();
+    ArrayList<String> standard_list=new ArrayList<>();
 
     private Context context;
+    private DatabaseReference databaseReference;
+    private FirebaseDatabase firebaseDatabase;
 
 
 
-    public File_Accept_Reject_Adapter(ArrayList<String> names, ArrayList<String> url, Context context) {
+    public File_Accept_Reject_Adapter(ArrayList<String> names, ArrayList<String> url,ArrayList<String> editon_list,ArrayList<String> subject_list,ArrayList<String> standard_list, Context context) {
         this.filenames = names;
         this.vulunteer_namers =url;
+        this.editon_list = editon_list;
+        this.subject_list = subject_list;
+        this.standard_list = standard_list;
         this.context = context;
     }
 
@@ -64,10 +74,20 @@ public class File_Accept_Reject_Adapter extends BaseAdapter implements ListAdapt
         listItemText_volunteername.setText(vulunteer_namers.get(position));
         ImageView accept_button = view.findViewById(R.id.file_accept_icon);
         ImageView reject_button = view.findViewById(R.id.file_reject_icon);
+        firebaseDatabase= FirebaseDatabase.getInstance();
+
 
         accept_button.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v) {
+                databaseReference = firebaseDatabase.getReference().child("rootfiles").child(standard_list.get(position));
+
+                databaseReference.child("bookname").setValue(filenames.get(position));
+                databaseReference.child("edition").setValue(editon_list.get(position));
+                databaseReference.child("subject").setValue(subject_list.get(position));
+                databaseReference.child("standard").setValue(standard_list.get(position));
+                databaseReference.child("volunteer").setValue(vulunteer_namers.get(position));
+
 
             }
         });

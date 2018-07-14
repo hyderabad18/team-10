@@ -4,17 +4,9 @@
         android:title="Upload"
         android:id="@+id/uploadfiles"/>
     <item
-        android:title="Edit"
-        android:id="@+id/edit_text"/>
-    <item
-        android:title="Make PDF"
-        android:id="@+id/make_pdf"/>
-    <item
-        android:title="Share"
-        android:id="@+id/share"/>
-    <item
-        android:title="Upload"
-        android:id="@+id/upload"/>
+        android:title="Statistics"
+        android:id="@+id/statistics"/>
+
 
 
 </menu>

@@ -7,6 +7,11 @@
     android:orientation="vertical"
     tools:context=".admin.AdminLogin">
 
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:srcCompat="@drawable/iandeyelong" />
+
     <EditText
         android:id="@+id/admin_id"
         android:layout_width="match_parent"

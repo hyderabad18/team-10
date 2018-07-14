@@ -12,6 +12,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.Toast;
 
+import com.cfg.iandeye.admin.AdminLogin;
 import com.cfg.iandeye.volunter.Volunteer_Registration;
 
 public class Splash_Activity extends AppCompatActivity {
@@ -36,7 +37,7 @@ public class Splash_Activity extends AppCompatActivity {
         admin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-            startActivity(new Intent(Splash_Activity.this,adminLogin.class));
+            startActivity(new Intent(Splash_Activity.this,AdminLogin.class));
             }
         });
 

@@ -2,9 +2,10 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.cfg.iandeye">
 
-    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
-
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
     <application
         android:allowBackup="true"
         android:icon="@drawable/iandeye"
@@ -27,9 +28,24 @@
             </intent-filter>
         </activity>
         <activity android:name=".admin.AdminLogin" />
-        <activity android:name=".admin.Admin_Dashboard" />
-        <activity android:name=".volunter.Volunteer_Dashboard" />
+        <activity android:name=".admin.Admin_Dashboard" >
+        <intent-filter>
+            <action android:name="android.intent.action.MAIN" />
+
+            <category android:name="android.intent.category.DEFAULT" />
+        </intent-filter>
+        </activity>
+
+        <activity android:name=".volunter.Volunteer_Dashboard" >
+        <intent-filter>
+            <action android:name="android.intent.action.MAIN" />
+
+            <category android:name="android.intent.category.DEFAULT" />
+        </intent-filter>
+
+        </activity>
         <activity android:name=".student.StudentLogin" />
+
         <activity android:name=".student.StudentDashboard">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

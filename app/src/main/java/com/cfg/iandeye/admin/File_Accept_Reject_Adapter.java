@@ -26,7 +26,10 @@ public class File_Accept_Reject_Adapter extends BaseAdapter implements ListAdapt
     private ArrayList<String> vulunteer_namers = new ArrayList<String>();
     ArrayList<String> editon_list=new ArrayList<>();
     ArrayList<String> subject_list=new ArrayList<>();
+
     ArrayList<String> standard_list=new ArrayList<>();
+    ArrayList<String> fileurls=new ArrayList<>();
+
     ArrayList<String> keyid_list=new ArrayList<>();
 
 
@@ -37,12 +40,13 @@ public class File_Accept_Reject_Adapter extends BaseAdapter implements ListAdapt
 
 
     public File_Accept_Reject_Adapter(ArrayList<String> names,
-                                      ArrayList<String> url,ArrayList<String> editon_list,ArrayList<String> subject_list,ArrayList<String> standard_list,ArrayList<String> keyid_list, Context context) {
+                                      ArrayList<String> url,ArrayList<String> editon_list,ArrayList<String> subject_list,ArrayList<String> standard_list,ArrayList<String> fileurls,ArrayList<String> keyid_list, Context context) {
         this.filenames = names;
         this.vulunteer_namers =url;
         this.editon_list = editon_list;
         this.subject_list = subject_list;
         this.standard_list = standard_list;
+        this.fileurls = fileurls;
         this.keyid_list = keyid_list;
         this.context = context;
     }
@@ -84,13 +88,15 @@ public class File_Accept_Reject_Adapter extends BaseAdapter implements ListAdapt
         accept_button.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v) {
-                databaseReference = firebaseDatabase.getReference().child("rootfiles").child(standard_list.get(position));
+                databaseReference = firebaseDatabase.getReference().child("rootfiles").child(String.valueOf(keyid_list.get(position)));
 
                 databaseReference.child("bookname").setValue(filenames.get(position));
                 databaseReference.child("edition").setValue(editon_list.get(position));
                 databaseReference.child("subject").setValue(subject_list.get(position));
                 databaseReference.child("standard").setValue(standard_list.get(position));
                 databaseReference.child("volunteer").setValue(vulunteer_namers.get(position));
+                databaseReference.child("url").setValue(fileurls.get(position));
+
 
                 databaseReference = firebaseDatabase.getReference().child("files_temp");
                 databaseReference.child(String.valueOf(keyid_list.get(position))).removeValue();

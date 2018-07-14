@@ -159,19 +159,22 @@ public class FileUpload_Fragment extends Fragment {
                     storageReference.getDownloadUrl().addOnSuccessListener(new OnSuccessListener<Uri>() {
                         @Override
                         public void onSuccess(Uri uri) {
-                            Toast.makeText(getActivity(), uri.toString(), Toast.LENGTH_SHORT).show();
+                            Toast.makeText(getActivity(), "doc uploaded", Toast.LENGTH_SHORT).show();
+
+                            databaseReference = firebaseDatabase.getReference().child("files_temp").child(String.valueOf(count));
+
+                            databaseReference.child("bookname").setValue(file_name.getText().toString());
+                            databaseReference.child("edition").setValue(edition.getText().toString());
+                            databaseReference.child("subject").setValue(subject.getText().toString());
+                            databaseReference.child("standard").setValue(spinner.getSelectedItem().toString());
+                            databaseReference.child("volunteer").setValue("volunteer1");
+                            databaseReference.child("url").setValue(uri.toString());
+                            databaseReference.child("keyid").setValue(String.valueOf(count++));
+
+                            Log.i("log",uri.toString());
+
                         }
                     });
-                    Toast.makeText(getActivity(), "doc uploaded", Toast.LENGTH_SHORT).show();
-
-                    databaseReference = firebaseDatabase.getReference().child("files_temp").child(String.valueOf(count));
-
-                    databaseReference.child("bookname").setValue(file_name.getText().toString());
-                    databaseReference.child("edition").setValue(edition.getText().toString());
-                    databaseReference.child("subject").setValue(subject.getText().toString());
-                    databaseReference.child("standard").setValue(spinner.getSelectedItem().toString());
-                    databaseReference.child("volunteer").setValue("volunteer1");
-                    databaseReference.child("keyid").setValue(String.valueOf(count++));
 
 
                 }

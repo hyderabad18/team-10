@@ -135,13 +135,13 @@ public class FileDownloadadapter extends BaseAdapter implements ListAdapter {
         protected String[] doInBackground(String... strings) {
             String url = strings[0];
             Log.i("log",url);
-            String filename = strings[1];
+            String filename = strings[1]+".wav";
             Log.i("log",filename);
             String extstoragedir = Environment.getExternalStorageDirectory().toString();
             File fol = new File(extstoragedir, "iandeye");
             File folder = new File(fol, "audiobooks");
 
-            boolean bool = folder.mkdir();
+            boolean bool = folder.mkdirs();
 
             File file = new File(folder, filename);
             try {

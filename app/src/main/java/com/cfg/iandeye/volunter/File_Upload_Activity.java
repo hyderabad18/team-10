@@ -42,6 +42,10 @@ public class File_Upload_Activity extends AppCompatActivity {
     private static int count=1;
     Spinner spinner;
     private EditText file_name;
+    private EditText edition;
+    private EditText subject;
+
+
 
 
     @Override
@@ -53,6 +57,10 @@ public class File_Upload_Activity extends AppCompatActivity {
         final ArrayAdapter<String> standardadapter=new ArrayAdapter<String>(this,android.R.layout.simple_dropdown_item_1line,standard);
          spinner = findViewById(R.id.standard_spinner);
         spinner.setAdapter(standardadapter);
+        file_name = findViewById(R.id.file_name);
+        edition = findViewById(R.id.edition);
+        subject = findViewById(R.id.subject);
+
 
 
 
@@ -130,7 +138,10 @@ public class File_Upload_Activity extends AppCompatActivity {
                     Fileupload fileupload=new Fileupload("first file",taskSnapshot.getMetadata().toString());
 
                         databaseReference = firebaseDatabase.getReference().child("rootfiles").child(spinner.getSelectedItem().toString()).child(String.valueOf(count++));
-                        databaseReference.setValue(file_name.getText());
+                        databaseReference.child("bookname").setValue(file_name.getText().toString());
+                        databaseReference.child("edition").setValue(edition.getText().toString());
+                        databaseReference.child("subject").setValue(subject.getText().toString());
+
 
 
                 }

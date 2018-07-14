@@ -5,7 +5,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
-import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.ListAdapter;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -62,8 +62,8 @@ public class File_Accept_Reject_Adapter extends BaseAdapter implements ListAdapt
 
         listItemText_filename.setText(filenames.get(position));
         listItemText_volunteername.setText(vulunteer_namers.get(position));
-        Button accept_button = view.findViewById(R.id.file_accept_icon);
-        Button reject_button = view.findViewById(R.id.file_reject_icon);
+        ImageView accept_button = view.findViewById(R.id.file_accept_icon);
+        ImageView reject_button = view.findViewById(R.id.file_reject_icon);
 
         accept_button.setOnClickListener(new View.OnClickListener(){
             @Override

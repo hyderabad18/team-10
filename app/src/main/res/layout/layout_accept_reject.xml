@@ -7,7 +7,7 @@
     android:orientation="vertical">
 
     <LinearLayout
-        android:layout_width="fill_parent"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="5dp"
         tools:ignore="UselessParent">
@@ -24,8 +24,8 @@
 
         <ImageView
             android:id="@+id/file_accept_icon"
-            android:layout_width="wrap_content"
-            android:layout_height="30dp"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
             android:layout_gravity="right"
             android:clickable="true"
             android:contentDescription=""
@@ -34,8 +34,8 @@
 
         <ImageView
             android:id="@+id/file_reject_icon"
-            android:layout_width="wrap_content"
-            android:layout_height="30dp"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
             android:layout_gravity="right"
             android:clickable="true"
             android:contentDescription=""

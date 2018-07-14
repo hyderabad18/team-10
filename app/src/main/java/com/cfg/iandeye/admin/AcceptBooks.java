@@ -35,7 +35,7 @@ public class AcceptBooks extends AppCompatActivity {
 
 
      try {
-        databaseReference = firebaseDatabase.getReference().child("storage_temp");
+        databaseReference = firebaseDatabase.getReference().child("files_temp");
 
         valueEventListener = databaseReference.addChildEventListener(new ChildEventListener() {
             @Override

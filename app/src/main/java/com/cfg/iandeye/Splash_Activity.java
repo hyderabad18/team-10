@@ -11,6 +11,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
 import android.widget.Toast;
+import android.widget.Toolbar;
 
 import com.cfg.iandeye.admin.AdminLogin;
 import com.cfg.iandeye.student.StudentLogin;
@@ -22,6 +23,8 @@ public class Splash_Activity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_splash);
+        android.support.v7.widget.Toolbar toolbar= (android.support.v7.widget.Toolbar) findViewById(R.id.toolbar);
+        toolbar.setTitle("I AND EYE");
 
 
         Button admin = findViewById(R.id.admin_button);

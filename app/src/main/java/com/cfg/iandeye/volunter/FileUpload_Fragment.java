@@ -27,6 +27,8 @@ import android.widget.Toast;
 import com.cfg.iandeye.R;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.storage.FirebaseStorage;
@@ -57,6 +59,9 @@ public class FileUpload_Fragment extends Fragment {
     String uploadfilename;
     Button  button;
 
+    FirebaseUser user;
+    private FirebaseAuth mAuth;
+
     public FileUpload_Fragment() {
         // Required empty public constructor
     }
@@ -82,6 +87,10 @@ public class FileUpload_Fragment extends Fragment {
         file_name = holder.findViewById(R.id.file_name);
         edition = holder.findViewById(R.id.edition);
         subject = holder.findViewById(R.id.subject);
+
+        mAuth = FirebaseAuth.getInstance();
+
+        user = mAuth.getCurrentUser();
 
 
         mStorageRef = FirebaseStorage.getInstance(com.google.firebase.FirebaseApp.initializeApp(getActivity())).getReference();
@@ -167,7 +176,7 @@ public class FileUpload_Fragment extends Fragment {
                             databaseReference.child("edition").setValue(edition.getText().toString());
                             databaseReference.child("subject").setValue(subject.getText().toString());
                             databaseReference.child("standard").setValue(spinner.getSelectedItem().toString());
-                            databaseReference.child("volunteer").setValue("volunteer1");
+                            databaseReference.child("volunteer").setValue(user.getEmail().toString());
                             databaseReference.child("url").setValue(uri.toString());
                             databaseReference.child("keyid").setValue(String.valueOf(count++));
 

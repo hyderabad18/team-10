@@ -6,26 +6,55 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     tools:context=".Splash_Activity">
+    <android.support.v7.widget.Toolbar
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:theme="@style/toolbartheme"
+
+        android:background="?attr/colorPrimary"
+        android:elevation="8dp" />
+
+
+    <ImageView
+        android:id="@+id/imageView2"
+        android:layout_width="372dp"
+        android:layout_height="171dp"
+        android:layout_margin="10dp"
+        android:padding="10dp"
+        app:srcCompat="@drawable/iandeye" />
 
     <Button
         android:id="@+id/admin_button"
+        style="@style/FirebaseUI.Button"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
         android:layout_marginTop="69dp"
-        android:text="I am Admin" />
+        android:text="I am Admin"
+        android:textColor="@color/white" />
 
     <Button
         android:id="@+id/volunteer_button"
+        style="@style/FirebaseUI.Button"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="I Am Volunteer" />
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:text="I Am Volunteer"
+        android:textColor="@color/white" />
 
     <Button
         android:id="@+id/student_button"
+        style="@style/FirebaseUI.Button"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="I AM Student" />
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:text="I AM Student"
+        android:textColor="@color/white" />
 
 </LinearLayout>

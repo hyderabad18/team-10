@@ -6,6 +6,16 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     tools:context=".admin.AdminLogin">
+    <android.support.v7.widget.Toolbar
+        android:id="@+id/toolbar"
+        app:navigationIcon="@drawable/ic_arrow_back"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:theme="@style/toolbartheme"
+
+        android:background="?attr/colorPrimary"
+        android:elevation="8dp" />
+
 
     <ImageView
         android:layout_width="match_parent"
@@ -30,7 +40,10 @@
 
     <Button
         android:id="@+id/admin"
+        style="@style/FirebaseUI.Button"
+
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Login" />
+        android:text="Login"
+        android:textColor="@color/white" />
 </LinearLayout>

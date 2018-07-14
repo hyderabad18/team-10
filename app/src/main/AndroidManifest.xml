@@ -40,7 +40,9 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".admin.AdminLogin"></activity>
+        <activity android:name=".admin.AdminLogin" />
+        <activity android:name=".admin.Admin_Dashboard" />
+        <activity android:name=".volunter.Volunteer_Dashboard"></activity>
     </application>
 
 </manifest>

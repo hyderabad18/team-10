@@ -136,13 +136,16 @@ public class File_Upload_Activity extends AppCompatActivity {
                     progressDialog.dismiss();
                     Toast.makeText(File_Upload_Activity.this, "doc uploaded", Toast.LENGTH_SHORT).show();
 
-                        databaseReference = firebaseDatabase.getReference().child("files_temp").child(String.valueOf(count++));
+                        databaseReference = firebaseDatabase.getReference().child("files_temp").child(String.valueOf(count));
 
                         databaseReference.child("bookname").setValue(file_name.getText().toString());
                         databaseReference.child("edition").setValue(edition.getText().toString());
                         databaseReference.child("subject").setValue(subject.getText().toString());
-                         databaseReference.child("standard").setValue(spinner.getSelectedItem().toString());
-                    databaseReference.child("volunteer").setValue("volunteer1");
+                        databaseReference.child("standard").setValue(spinner.getSelectedItem().toString());
+                        databaseReference.child("volunteer").setValue("volunteer1");
+                        databaseReference.child("keyid").setValue(String.valueOf(count++));
+
+
 
 
 

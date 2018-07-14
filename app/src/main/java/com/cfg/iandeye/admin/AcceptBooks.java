@@ -32,10 +32,13 @@ public class AcceptBooks extends AppCompatActivity {
         final ArrayList<String> editon_list=new ArrayList<>();
         final ArrayList<String> subject_list=new ArrayList<>();
         final ArrayList<String> standard_list=new ArrayList<>();
+        final ArrayList<String> key_ids = new ArrayList<>();
 
 
 
-        final File_Accept_Reject_Adapter fileDownloadadapter=new File_Accept_Reject_Adapter(filenames,volunteernames,editon_list,subject_list,standard_list,this);
+
+        final File_Accept_Reject_Adapter fileDownloadadapter=new
+                File_Accept_Reject_Adapter(filenames,volunteernames,editon_list,subject_list,standard_list,key_ids,this);
 
 
 
@@ -57,6 +60,7 @@ public class AcceptBooks extends AppCompatActivity {
                 editon_list.add(map.get("edition"));
                 subject_list.add(map.get("subject"));
                 standard_list.add(map.get("standard"));
+                key_ids.add(map.get("keyid"));
 
 
 

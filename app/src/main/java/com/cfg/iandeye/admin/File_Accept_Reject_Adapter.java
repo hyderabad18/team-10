@@ -27,6 +27,8 @@ public class File_Accept_Reject_Adapter extends BaseAdapter implements ListAdapt
     ArrayList<String> editon_list=new ArrayList<>();
     ArrayList<String> subject_list=new ArrayList<>();
     ArrayList<String> standard_list=new ArrayList<>();
+    ArrayList<String> keyid_list=new ArrayList<>();
+
 
     private Context context;
     private DatabaseReference databaseReference;
@@ -34,12 +36,14 @@ public class File_Accept_Reject_Adapter extends BaseAdapter implements ListAdapt
 
 
 
-    public File_Accept_Reject_Adapter(ArrayList<String> names, ArrayList<String> url,ArrayList<String> editon_list,ArrayList<String> subject_list,ArrayList<String> standard_list, Context context) {
+    public File_Accept_Reject_Adapter(ArrayList<String> names,
+                                      ArrayList<String> url,ArrayList<String> editon_list,ArrayList<String> subject_list,ArrayList<String> standard_list,ArrayList<String> keyid_list, Context context) {
         this.filenames = names;
         this.vulunteer_namers =url;
         this.editon_list = editon_list;
         this.subject_list = subject_list;
         this.standard_list = standard_list;
+        this.keyid_list = keyid_list;
         this.context = context;
     }
 
@@ -87,6 +91,9 @@ public class File_Accept_Reject_Adapter extends BaseAdapter implements ListAdapt
                 databaseReference.child("subject").setValue(subject_list.get(position));
                 databaseReference.child("standard").setValue(standard_list.get(position));
                 databaseReference.child("volunteer").setValue(vulunteer_namers.get(position));
+
+                databaseReference = firebaseDatabase.getReference().child("files_temp");
+                databaseReference.child(String.valueOf(keyid_list.get(position))).removeValue();
 
 
             }

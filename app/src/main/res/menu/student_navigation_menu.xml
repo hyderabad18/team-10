@@ -1,20 +1,20 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
     <item
-        android:title="Save As"
-        android:id="@+id/saveas"/>
+        android:title="Offline"
+        android:id="@+id/offline_files"/>
     <item
-        android:title="Edit"
-        android:id="@+id/edit_text"/>
+        android:title="Online"
+        android:id="@+id/online_files"/>
     <item
-        android:title="Make PDF"
-        android:id="@+id/make_pdf"/>
+        android:title="Request"
+        android:id="@+id/request_book" />
     <item
         android:title="Share"
         android:id="@+id/share"/>
     <item
-        android:title="Upload"
-        android:id="@+id/upload"/>
+        android:title="more"
+        android:id="@+id/more"/>
 
 
 </menu>

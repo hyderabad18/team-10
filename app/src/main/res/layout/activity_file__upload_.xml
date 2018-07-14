@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:layout_below="@+id/toolbar"
+        android:orientation="horizontal"
+        android:id="@+id/relativeLayout">
+
+
+        <Button
+            android:id="@+id/select"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="39dp"
+            android:text="Select file"
+            tools:ignore="HardcodedText"
+            android:backgroundTint="@color/colorPrimary"
+            android:elevation="8dp"
+            android:textColor="@color/white"
+            android:layout_alignParentStart="true" />
+
+        <Button
+            android:id="@+id/upload"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:onClick="buttonupload"
+            android:layout_alignRight="@+id/select"
+            android:text="upload"
+            tools:ignore="HardcodedText"
+            android:backgroundTint="@color/colorPrimary"
+            android:elevation="8dp"
+            android:textColor="@color/white"
+            android:layout_alignBaseline="@+id/select"
+            android:layout_alignBottom="@+id/select"
+            android:layout_alignParentEnd="true"
+            android:layout_marginEnd="20dp" />
+
+    </RelativeLayout>
+
+    <TextView
+        android:id="@+id/filename"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="141dp"
+        android:textColor="@android:color/black"
+        android:textSize="18sp" />
+</RelativeLayout>

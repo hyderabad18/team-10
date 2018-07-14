@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "284716505459",
+    "firebase_url": "https://iandeye-e12f4.firebaseio.com",
+    "project_id": "iandeye-e12f4",
+    "storage_bucket": "iandeye-e12f4.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:284716505459:android:0612717d074eca39",
+        "android_client_info": {
+          "package_name": "com.cfg.iandeye"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "284716505459-9drcgc1jiabvu6tvdu1n7dq7bp6f8g9m.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.cfg.iandeye",
+            "certificate_hash": "a41c6b3bd93325b4c774878dd50a65f340a3b816"
+          }
+        },
+        {
+          "client_id": "284716505459-4qjb4ls2qtb2kmb0vngps6t6got2bq63.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBKd6Zs2UxI8ilhURMES2ff8X_6U3LNHtE"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "284716505459-4qjb4ls2qtb2kmb0vngps6t6got2bq63.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

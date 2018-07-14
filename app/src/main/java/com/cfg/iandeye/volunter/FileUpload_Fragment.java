@@ -54,6 +54,7 @@ public class FileUpload_Fragment extends Fragment {
     private EditText edition;
     private EditText subject;
     View holder;
+    String uploadfilename;
 
     public FileUpload_Fragment() {
         // Required empty public constructor
@@ -109,6 +110,9 @@ public class FileUpload_Fragment extends Fragment {
             int sizeIndex = returnCursor.getColumnIndex(OpenableColumns.SIZE);
             returnCursor.moveToFirst();
 
+            uploadfilename=returnCursor.getString(nameIndex);
+            //filename.setText(uploadfilename);
+
 
         }
     }
@@ -140,7 +144,7 @@ public class FileUpload_Fragment extends Fragment {
             final ProgressDialog progressDialog = new ProgressDialog(getActivity());
             progressDialog.setTitle("uploading file");
             progressDialog.show();
-            StorageReference storageReference = mStorageRef.child("documents/" + "firstfile");
+            StorageReference storageReference = mStorageRef.child("audiobooks/" + uploadfilename);
             storageReference.putFile(uploadfileuri).addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
                 @Override
                 public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {

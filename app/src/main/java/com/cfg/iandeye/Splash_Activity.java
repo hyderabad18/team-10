@@ -13,6 +13,7 @@ import android.widget.Button;
 import android.widget.Toast;
 
 import com.cfg.iandeye.admin.AdminLogin;
+import com.cfg.iandeye.student.StudentLogin;
 import com.cfg.iandeye.volunter.Volunteer_Registration;
 
 public class Splash_Activity extends AppCompatActivity {
@@ -55,7 +56,7 @@ public class Splash_Activity extends AppCompatActivity {
         student.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                startActivity(new Intent(Splash_Activity.this,Volunteer_Registration.class));
+                startActivity(new Intent(Splash_Activity.this,StudentLogin.class));
 
             }
         });

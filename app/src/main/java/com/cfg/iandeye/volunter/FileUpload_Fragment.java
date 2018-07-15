@@ -3,12 +3,18 @@ package com.cfg.iandeye.volunter;
 
 import android.app.ProgressDialog;
 import android.content.ContentResolver;
+import android.content.ContentUris;
+import android.content.Context;
 import android.content.Intent;
 import android.database.Cursor;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.net.Uri;
+import android.os.Build;
 import android.os.Bundle;
+import android.os.Environment;
+import android.provider.DocumentsContract;
+import android.provider.MediaStore;
 import android.provider.OpenableColumns;
 import android.support.annotation.NonNull;
 import android.support.v4.app.Fragment;
@@ -37,8 +43,11 @@ import com.google.firebase.storage.StorageReference;
 import com.google.firebase.storage.UploadTask;
 
 import java.io.File;
+import java.net.URISyntaxException;
 
 import cafe.adriel.androidaudioconverter.AndroidAudioConverter;
+import cafe.adriel.androidaudioconverter.callback.IConvertCallback;
+import cafe.adriel.androidaudioconverter.model.AudioFormat;
 
 import static android.app.Activity.RESULT_OK;
 import static android.content.Context.CONNECTIVITY_SERVICE;
@@ -81,7 +90,7 @@ public class FileUpload_Fragment extends Fragment {
                 buttonupload();
             }
         });
-        Toast.makeText(getActivity(), "File in uplaod activity", Toast.LENGTH_SHORT).show();
+        //Toast.makeText(getActivity(), "File in uplaod activity", Toast.LENGTH_SHORT).show();
         final String[] standard = new String[]{"Select", "10", "11", "12"};
         final ArrayAdapter<String> standardadapter = new ArrayAdapter<String>(getActivity(), android.R.layout.simple_dropdown_item_1line, standard);
         spinner = holder.findViewById(R.id.standard_spinner);
@@ -103,7 +112,7 @@ public class FileUpload_Fragment extends Fragment {
             @Override
             public void onClick(View v) {
                 Intent i = new Intent(Intent.ACTION_GET_CONTENT);
-                i.setType("*/*");
+                i.setType("audio/*");
                 startActivityForResult(Intent.createChooser(i, "select file"), gallery);
             }
         });
@@ -117,14 +126,42 @@ public class FileUpload_Fragment extends Fragment {
         super.onActivityResult(requestCode, resultCode, data);
         if (requestCode == gallery && resultCode == RESULT_OK && data != null) {
             uploadfileuri = data.getData();
-            File file = new File(uploadfileuri.getPath());
+            String path = null;
+            try {
+                path = getFilePath(getContext(),uploadfileuri);
+            } catch (URISyntaxException e) {
+                e.printStackTrace();
+            }
+            Log.i("log",path);
+
+            File file = new File(path);
+            Log.i("log",file.toString());
             String type = getfileext(uploadfileuri);
             Log.i("log",type);
+
+
             if(type.equals("wav") || type.equals("WAV")) {
+
+                final ProgressDialog progress = new ProgressDialog(getContext());
+                progress.setMessage("Converting ....");
+                progress.show();
+
+                IConvertCallback callback = new IConvertCallback() {
+                    @Override
+                    public void onSuccess(File convertedFile) {
+                        //Toast.makeText(getContext(), "SUCCESS: " + convertedFile.getPath(), Toast.LENGTH_LONG).show();
+                        uploadfileuri = Uri.fromFile(new File(convertedFile.getPath()));
+                        progress.dismiss();
+                    }
+                    @Override
+                    public void onFailure(Exception error) {
+                        Toast.makeText(getContext(), "ERROR: " + error.getMessage(), Toast.LENGTH_LONG).show();
+                    }
+                };
 
                 AndroidAudioConverter.with(getContext())
                         .setFile(file)
-                        .setFormat(AndroidAudioConverter.AudioFormat.MP3)
+                        .setFormat(AudioFormat.MP3)
                         .setCallback(callback)
                         .convert();
             }
@@ -216,4 +253,65 @@ public class FileUpload_Fragment extends Fragment {
             });
         }
     }
-}
+
+    public static String getFilePath(Context context, Uri uri) throws URISyntaxException {
+        String selection = null;
+        String[] selectionArgs = null;
+        // Uri is different in versions after KITKAT (Android 4.4), we need to
+        if (Build.VERSION.SDK_INT >= 19 && DocumentsContract.isDocumentUri(context.getApplicationContext(), uri)) {
+            if (isExternalStorageDocument(uri)) {
+                final String docId = DocumentsContract.getDocumentId(uri);
+                final String[] split = docId.split(":");
+                return Environment.getExternalStorageDirectory() + "/" + split[1];
+            } else if (isDownloadsDocument(uri)) {
+                final String id = DocumentsContract.getDocumentId(uri);
+                uri = ContentUris.withAppendedId(
+                        Uri.parse("content://downloads/public_downloads"), Long.valueOf(id));
+            } else if (isMediaDocument(uri)) {
+                final String docId = DocumentsContract.getDocumentId(uri);
+                final String[] split = docId.split(":");
+                final String type = split[0];
+                if ("image".equals(type)) {
+                    uri = MediaStore.Images.Media.EXTERNAL_CONTENT_URI;
+                } else if ("video".equals(type)) {
+                    uri = MediaStore.Video.Media.EXTERNAL_CONTENT_URI;
+                } else if ("audio".equals(type)) {
+                    uri = MediaStore.Audio.Media.EXTERNAL_CONTENT_URI;
+                }
+                selection = "_id=?";
+                selectionArgs = new String[]{
+                        split[1]
+                };
+            }
+        }
+        if ("content".equalsIgnoreCase(uri.getScheme())) {
+            String[] projection = {
+                    MediaStore.Images.Media.DATA
+            };
+            Cursor cursor = null;
+            try {
+                cursor = context.getContentResolver()
+                        .query(uri, projection, selection, selectionArgs, null);
+                int column_index = cursor.getColumnIndexOrThrow(MediaStore.Images.Media.DATA);
+                if (cursor.moveToFirst()) {
+                    return cursor.getString(column_index);
+                }
+            } catch (Exception e) {
+            }
+        } else if ("file".equalsIgnoreCase(uri.getScheme())) {
+            return uri.getPath();
+        }
+        return null;
+    }
+
+    public static boolean isExternalStorageDocument(Uri uri) {
+        return "com.android.externalstorage.documents".equals(uri.getAuthority());
+    }
+
+    public static boolean isDownloadsDocument(Uri uri) {
+        return "com.android.providers.downloads.documents".equals(uri.getAuthority());
+    }
+
+    public static boolean isMediaDocument(Uri uri) {
+        return "com.android.providers.media.documents".equals(uri.getAuthority());
+    }}

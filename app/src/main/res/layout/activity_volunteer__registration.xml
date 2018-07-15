@@ -15,14 +15,5 @@
         android:background="?attr/colorPrimary"
         android:elevation="8dp" />
 
-    <TextView
-        android:id="@+id/textView7"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_centerInParent="true"
-        android:layout_weight="1"
-        android:text="Press back again to exit"
-        android:textSize="18sp" />
-
 
 </RelativeLayout>

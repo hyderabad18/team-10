@@ -1,7 +1,7 @@
 # team-10
  
   
-IANDEYE is a major mobile technology development in the field of applications for the visually impaired people.
+I&EYE is a major mobile technology development in the field of applications for the visually impaired people.
 
 The diverse features of this application are described below.
 
@@ -17,7 +17,8 @@ There are three users who use this application:
         
         -> Listen to the audio books without downloading
         
-        -> Request for a book
+        -> Request for a audiobook
+        
 2) Volunteer
 
    a) Role

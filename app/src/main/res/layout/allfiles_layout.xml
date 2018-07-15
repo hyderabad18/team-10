@@ -22,28 +22,6 @@
             android:textColor="@android:color/black"
             android:textSize="18sp" />
 
-        <ImageView
-            android:id="@+id/file_accept_icon"
-            android:layout_width="30dp"
-            android:layout_height="30dp"
-            android:layout_gravity="right"
-            android:layout_margin="5dp"
-            android:clickable="true"
-            android:contentDescription=""
-            app:srcCompat="@drawable/file_accept"
-            tools:ignore="ContentDescription,RtlHardcoded" />
-
-        <ImageView
-            android:id="@+id/file_reject_icon"
-            android:layout_width="30dp"
-            android:layout_height="30dp"
-            android:layout_gravity="right"
-            android:layout_margin="5dp"
-            android:clickable="true"
-            android:contentDescription=""
-            app:srcCompat="@drawable/file_reject"
-            tools:ignore="ContentDescription,RtlHardcoded" />
-
     </LinearLayout>
 
     <LinearLayout

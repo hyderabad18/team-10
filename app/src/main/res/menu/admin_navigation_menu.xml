@@ -4,7 +4,7 @@
         android:title="Approvals"
         android:id="@+id/approvals"/>
     <item
-        android:title="allfiles"
+        android:title="All Files"
         android:id="@+id/allfiles"/>
 
     <item

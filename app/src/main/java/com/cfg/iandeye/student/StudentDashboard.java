@@ -96,9 +96,12 @@ public class StudentDashboard extends AppCompatActivity {
         Offlinedocs offlinedocs = new Offlinedocs();
         Onlinedocs onlinedocs =new Onlinedocs();
         RequestBook requestBook = new RequestBook();
+        VoiceActivity voiceActivity = new VoiceActivity();
         adapter.addFragment(offlinedocs);
         adapter.addFragment(onlinedocs);
         adapter.addFragment(requestBook);
+        adapter.addFragment(voiceActivity);
+
         viewPager.setAdapter(adapter);
         viewPager.setCurrentItem(0);
 

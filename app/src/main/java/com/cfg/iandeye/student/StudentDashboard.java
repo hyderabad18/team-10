@@ -8,6 +8,7 @@ import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.view.MenuItem;
+import android.view.View;
 
 import com.cfg.iandeye.R;
 import com.cfg.iandeye.ViewPagerAdapter;
@@ -24,6 +25,12 @@ public class StudentDashboard extends AppCompatActivity {
 
         android.support.v7.widget.Toolbar toolbar= (android.support.v7.widget.Toolbar) findViewById(R.id.toolbar);
         toolbar.setTitle("Dashboard");
+        toolbar.setNavigationOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                onBackPressed();
+            }
+        });
 
 
         final BottomNavigationView bottomNavigationView = (BottomNavigationView)

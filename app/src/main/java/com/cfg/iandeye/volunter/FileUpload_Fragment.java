@@ -17,6 +17,7 @@ import android.provider.DocumentsContract;
 import android.provider.MediaStore;
 import android.provider.OpenableColumns;
 import android.support.annotation.NonNull;
+import android.support.design.widget.FloatingActionButton;
 import android.support.v4.app.Fragment;
 import android.text.TextUtils;
 import android.util.Log;
@@ -98,6 +99,18 @@ public class FileUpload_Fragment extends Fragment {
         file_name = holder.findViewById(R.id.file_name);
         edition = holder.findViewById(R.id.edition);
         subject = holder.findViewById(R.id.subject);
+        FloatingActionButton floatingActionButton = holder.findViewById(R.id.share);
+        floatingActionButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent sendIntent = new Intent();
+                sendIntent.setAction(Intent.ACTION_SEND);
+                sendIntent.putExtra(Intent.EXTRA_TEXT,
+                        "Hey, I have Contributed to Visually Impared students by preparing study material using i&Eye Mobile app");
+                sendIntent.setType("text/plain");
+                startActivity(sendIntent);
+            }
+        });
 
         mAuth = FirebaseAuth.getInstance();
 

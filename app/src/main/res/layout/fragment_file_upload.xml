@@ -12,6 +12,7 @@
         android:layout_height="match_parent"
         android:layout_alignParentStart="true"
         android:layout_alignParentTop="true"
+        android:layout_margin="10dp"
         android:orientation="horizontal">
 
         <Spinner
@@ -60,7 +61,8 @@
             android:layout_alignParentTop="true"
             android:layout_marginTop="62dp"
             android:text="Select Standard"
-            android:textColor="@android:color/black" />
+            android:textColor="@android:color/black"
+            android:textSize="16sp" />
 
         <EditText
             android:id="@+id/file_name"
@@ -81,7 +83,8 @@
             android:layout_alignBaseline="@+id/file_name"
             android:layout_alignParentStart="true"
             android:text="Audio Book Name"
-            android:textColor="@android:color/black" />
+            android:textColor="@android:color/black"
+            android:textSize="16sp" />
 
         <TextView
             android:id="@+id/textView3"
@@ -89,37 +92,51 @@
             android:layout_height="30dp"
             android:layout_alignParentStart="true"
             android:layout_alignParentTop="true"
-            android:layout_marginTop="103dp"
+            android:layout_marginTop="114dp"
             android:text="Edition"
-            android:textColor="@android:color/black" />
+            android:textColor="@android:color/black"
+            android:textSize="16sp" />
 
         <EditText
             android:id="@+id/edition"
-            android:layout_width="200dp"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_alignBottom="@+id/textView3"
             android:layout_alignParentEnd="true"
-            android:layout_alignTop="@+id/textView3"
             android:ems="10"
+            android:hint="Enter Edition"
             android:inputType="textPersonName" />
 
         <TextView
             android:id="@+id/textView4"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="91dp"
+            android:layout_height="30dp"
             android:layout_alignBaseline="@+id/subject"
             android:layout_alignParentStart="true"
             android:text="Subject"
-            android:textColor="@android:color/black" />
+            android:textColor="@android:color/black"
+            android:textSize="16sp" />
 
         <EditText
             android:id="@+id/subject"
-            android:layout_width="200dp"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentEnd="true"
             android:layout_below="@+id/edition"
             android:ems="10"
+            android:hint="Enter Subject"
             android:inputType="textPersonName"
             android:visibility="visible" />
+
+        <android.support.design.widget.FloatingActionButton
+            android:id="@+id/share"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignEnd="@+id/upload"
+            android:layout_alignParentBottom="true"
+            android:layout_marginBottom="21dp"
+            android:clickable="true"
+            app:srcCompat="@android:drawable/ic_menu_share" />
 
     </RelativeLayout>
 

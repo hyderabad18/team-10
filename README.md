@@ -1,7 +1,6 @@
 # team-10
-
-IANDEYE
-
+ 
+  
 IANDEYE is a major mobile technology development in the field of applications for the visually impaired people.
 
 The diverse features of this application are described below.
@@ -45,15 +44,14 @@ There are three users who use this application:
 
    a) Features
    
-      -> Review and approve audio files uploaded by volunteers
+        -> Review and approve audio files uploaded by volunteers
       
-      -> Have access to all files
+        -> Have access to all files
       
-      -> Receives requests from students for new books
+        -> Receives requests from students for new books
       
-      -> Requests/assign a volunteer for an audio version of a book
-      
-      
+        -> Requests/assign a volunteer for an audio version of a book
+     
 
       
         

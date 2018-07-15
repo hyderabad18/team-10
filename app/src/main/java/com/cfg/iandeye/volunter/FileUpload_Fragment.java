@@ -38,6 +38,8 @@ import com.google.firebase.storage.UploadTask;
 
 import java.io.File;
 
+import cafe.adriel.androidaudioconverter.AndroidAudioConverter;
+
 import static android.app.Activity.RESULT_OK;
 import static android.content.Context.CONNECTIVITY_SERVICE;
 
@@ -117,6 +119,15 @@ public class FileUpload_Fragment extends Fragment {
             uploadfileuri = data.getData();
             File file = new File(uploadfileuri.getPath());
             String type = getfileext(uploadfileuri);
+            Log.i("log",type);
+            if(type.equals("wav") || type.equals("WAV")) {
+
+                AndroidAudioConverter.with(getContext())
+                        .setFile(file)
+                        .setFormat(AndroidAudioConverter.AudioFormat.MP3)
+                        .setCallback(callback)
+                        .convert();
+            }
 
             Uri returnUri = data.getData();
             Cursor returnCursor =

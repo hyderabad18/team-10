@@ -24,9 +24,11 @@
 
         <ImageView
             android:id="@+id/file_accept_icon"
-            android:layout_width="50dp"
-            android:layout_height="50dp"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
             android:layout_gravity="right"
+            android:layout_margin="5dp"
+            android:layout_marginRight="10dp"
             android:clickable="true"
             android:contentDescription=""
             app:srcCompat="@drawable/file_accept"
@@ -34,9 +36,11 @@
 
         <ImageView
             android:id="@+id/file_reject_icon"
-            android:layout_width="50dp"
-            android:layout_height="50dp"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
             android:layout_gravity="right"
+            android:layout_margin="5dp"
+            android:layout_marginLeft="10dp"
             android:clickable="true"
             android:contentDescription=""
             app:srcCompat="@drawable/file_reject"

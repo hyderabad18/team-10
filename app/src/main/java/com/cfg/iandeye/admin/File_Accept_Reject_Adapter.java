@@ -100,6 +100,7 @@ public class File_Accept_Reject_Adapter extends BaseAdapter implements ListAdapt
 
                 databaseReference = firebaseDatabase.getReference().child("files_temp");
                 databaseReference.child(String.valueOf(keyid_list.get(position))).removeValue();
+                Toast.makeText(context, "File Accepted...", Toast.LENGTH_SHORT).show();
 
 
             }

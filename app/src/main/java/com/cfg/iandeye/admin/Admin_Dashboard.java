@@ -49,6 +49,10 @@ public class Admin_Dashboard extends AppCompatActivity{
                                 viewPager.setCurrentItem(1);
                                 break;
 
+                            case R.id.request_book:
+                                viewPager.setCurrentItem(2);
+                                break;
+
                         }
 
                         return  true;
@@ -86,8 +90,6 @@ public class Admin_Dashboard extends AppCompatActivity{
         });
 
         setupViewPager(viewPager);
-
-
 
     }
     private void setupViewPager(ViewPager viewPager)

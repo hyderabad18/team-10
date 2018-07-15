@@ -71,7 +71,7 @@ public class StudentLogin extends AppCompatActivity {
             if (resultCode == ResultCodes.OK) {
                 Log.e("log", "login success");
 
-                Intent intent = new Intent(StudentLogin.this, StudentDashboard.class);
+                Intent intent = new Intent(StudentLogin.this, StudentProfile.class);
                 startActivity(intent);
 
 

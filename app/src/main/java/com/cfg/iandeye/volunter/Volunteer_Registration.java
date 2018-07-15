@@ -64,7 +64,7 @@ public class Volunteer_Registration extends AppCompatActivity {
             if (resultCode == ResultCodes.OK) {
                 Log.e("log","login success");
 
-                Intent intent = new Intent(Volunteer_Registration.this,Volunteer_Dashboard.class);
+                Intent intent = new Intent(Volunteer_Registration.this,VolunteerProfile.class);
                 startActivity(intent);
 
             }

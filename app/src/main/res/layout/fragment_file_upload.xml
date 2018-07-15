@@ -59,14 +59,14 @@
             android:layout_height="wrap_content"
             android:layout_alignParentStart="true"
             android:layout_alignParentTop="true"
-            android:layout_marginTop="62dp"
+            android:layout_marginTop="172dp"
             android:text="Select Standard"
             android:textColor="@android:color/black"
             android:textSize="16sp" />
 
         <EditText
             android:id="@+id/file_name"
-            android:layout_width="200dp"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentEnd="true"
             android:layout_alignParentTop="true"
@@ -92,7 +92,7 @@
             android:layout_height="30dp"
             android:layout_alignParentStart="true"
             android:layout_alignParentTop="true"
-            android:layout_marginTop="114dp"
+            android:layout_marginTop="72dp"
             android:text="Edition"
             android:textColor="@android:color/black"
             android:textSize="16sp" />
@@ -134,8 +134,9 @@
             android:layout_height="wrap_content"
             android:layout_alignEnd="@+id/upload"
             android:layout_alignParentBottom="true"
-            android:layout_marginBottom="21dp"
+            android:layout_marginBottom="56dp"
             android:clickable="true"
+            app:fabSize="normal"
             app:srcCompat="@android:drawable/ic_menu_share" />
 
     </RelativeLayout>

@@ -55,6 +55,7 @@ public class RequestedBooksFragment extends Fragment {
                     Map<String, String> map = (Map) dataSnapshot.getValue();
                     String filename = map.get("book_name");
                     String standard_name = map.get("standard");
+                    String v_drop = map.get("v_drop");
 
                     Log.i("log", filename);
 

@@ -14,13 +14,21 @@
 
         <TextView
             android:id="@+id/filename"
-            android:layout_width="254dp"
+            android:layout_width="239dp"
             android:layout_height="wrap_content"
             android:paddingBottom="2dp"
             android:paddingTop="2dp"
             android:text="file name here"
             android:textColor="@android:color/black"
             android:textSize="18sp" />
+
+        <Button
+            android:id="@+id/select_volunteer"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Select Volunteer"
+            android:textSize="12sp" />
 
     </LinearLayout>
 
